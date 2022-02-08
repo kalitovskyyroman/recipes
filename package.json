@@ -27,7 +27,8 @@
         "check-types": "tsc --noEmit",
         "predeploy": "npm run build",
         "deploy": "gh-pages -d build",
-        "husky-install": "husky install"
+        "husky-install": "husky install",
+        "prepare": "husky install"
     },
     "husky": {
         "hooks": {
@@ -65,7 +66,7 @@
         "eslint-plugin-react": "^7.28.0",
         "eslint-plugin-react-hooks": "^4.3.0",
         "gh-pages": "^3.2.3",
-        "husky": "^7.0.4",
+        "husky": "^7.0.0",
         "stylelint": "^14.3.0",
         "stylelint-config-prettier": "^9.0.3",
         "stylelint-config-standard": "^24.0.0",
