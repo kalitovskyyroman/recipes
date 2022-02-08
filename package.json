@@ -23,19 +23,22 @@
         "build": "react-scripts build",
         "test": "react-scripts test --watchAll=false",
         "eject": "react-scripts eject",
-        "check-styles": "stylelint **/*.scss",
+        "check-styles": "stylelint",
         "check-types": "tsc --noEmit",
         "predeploy": "npm run build",
         "deploy": "gh-pages -d build",
         "husky-install": "husky install",
+        "pre-commit": "lint-staged",
         "prepare": "husky install"
     },
-    "husky": {
-        "hooks": {
-            "pre-commit": "lint-staged && npm run check-styles && check-types && npm test"
-        }
+    "lint-staged": {
+        "*.scss": [
+            "npm run check-styles"
+        ],
+        "*.(ts|tsx)": [
+            "npm run check-types"
+        ]
     },
-    "lint-staged": {},
     "eslintConfig": {
         "extends": [
             "react-app",
