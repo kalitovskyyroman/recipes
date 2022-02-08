@@ -26,13 +26,15 @@
         "check-styles": "stylelint **/*.scss",
         "check-types": "tsc --noEmit",
         "predeploy": "npm run build",
-        "deploy": "gh-pages -d build"
+        "deploy": "gh-pages -d build",
+        "husky-install": "husky install"
     },
     "husky": {
         "hooks": {
-            "pre-commit": "npm run check-styles && check-types && npm test"
+            "pre-commit": "lint-staged && npm run check-styles && check-types && npm test"
         }
     },
+    "lint-staged": {},
     "eslintConfig": {
         "extends": [
             "react-app",
