@@ -1,6 +1,10 @@
 {
     "extends": ["stylelint-config-standard-scss", "stylelint-config-prettier"],
+    "plugins": ["stylelint-scss"],
     "rules": {
-        "indentation": 4
+        "indentation": 4,
+        "scss/at-import-partial-extension": "always",
+        "scss/at-import-partial-extension-whitelist": ["scss", "module.scss", "css"],
+        "no-descending-specificity": null
     }
 }

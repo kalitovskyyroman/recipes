@@ -1,3 +1,4 @@
+import Footer from "./components/Footer/Footer";
 import logo from "./logo.svg";
 import style from "./App.module.scss";
 
@@ -12,6 +13,7 @@ const App = () => (
                 Learn React
             </a>
         </header>
+        <Footer />
     </div>
 );
 

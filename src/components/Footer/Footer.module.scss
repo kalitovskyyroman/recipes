@@ -1,0 +1,70 @@
+@import "src/styles/mixins/breakpoints.module.scss";
+@import "src/styles/colors.scss";
+
+.footer {
+    color: white;
+    background-color: $rc-black;
+    padding: 15px 30px 15px 20px;
+
+    a:hover {
+        color: $rc-orange;
+    }
+
+    .first-row {
+        .title {
+            text-align: left;
+            margin-bottom: 15px;
+            font-size: 40px;
+
+            @include breakpoints($tablet) {
+                margin-right: 10%;
+            }
+        }
+
+        .socials {
+            text-align: left;
+            margin-bottom: 20px;
+
+            a {
+                margin-right: 20px;
+            }
+
+            @include breakpoints($tablet) {
+                display: flex;
+                align-items: center;
+                flex-direction: row;
+                margin-bottom: 0;
+            }
+        }
+
+        @include breakpoints($tablet) {
+            display: flex;
+            justify-content: left;
+        }
+    }
+
+    .pages {
+        a {
+            display: block;
+            text-transform: capitalize;
+            margin-bottom: 10px;
+
+            .page-link-title {
+                font-size: 20px;
+            }
+        }
+
+        @include breakpoints($tablet) {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    @include breakpoints($tablet) {
+        padding: 30px 100px;
+    }
+
+    @include breakpoints($desktop) {
+        padding: 50px 150px;
+    }
+}
