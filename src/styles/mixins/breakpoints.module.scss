@@ -1,0 +1,14 @@
+$tablet: 720;
+$desktop: 1300;
+
+@mixin breakpoints($size) {
+    @if $size == $tablet {
+        @media screen and (min-width: ($tablet + px)) {
+            @content;
+        }
+    } @else if $size == $desktop {
+        @media screen and (min-width: ($desktop + px)) {
+            @content;
+        }
+    }
+}
