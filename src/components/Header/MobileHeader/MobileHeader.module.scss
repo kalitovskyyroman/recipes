@@ -1,0 +1,36 @@
+@import "src/styles/consts/sizes.module.scss";
+
+.header {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+    .header-row {
+        display: flex;
+        align-items: center;
+        padding-left: $general-padding;
+        padding-right: $general-padding;
+
+        .title {
+            font-size: 35px;
+            width: 100%;
+            text-align: center;
+            margin-left: -48px;
+        }
+    }
+
+    .menu-container {
+        position: relative;
+        padding: 0;
+        height: calc(100% - 48px);
+
+        .menu {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: #fff;
+        }
+    }
+}

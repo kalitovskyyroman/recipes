@@ -1,3 +1,4 @@
+/* stylelint-disable property-no-unknown */
 $tablet: 720;
 $desktop: 1300;
 
@@ -11,4 +12,10 @@ $desktop: 1300;
             @content;
         }
     }
+}
+
+/* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+:export {
+    tablet: $tablet;
+    desktop: $desktop;
 }
