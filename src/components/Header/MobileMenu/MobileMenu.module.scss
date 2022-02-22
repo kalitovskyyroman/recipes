@@ -35,6 +35,10 @@
     .menu-button {
         align-self: flex-end;
         color: $rc-gray-blue;
+
+        &:hover {
+            color: $rc-orange;
+        }
     }
 
     .links {

@@ -1,12 +1,14 @@
+import { Link } from "react-router-dom";
 import { Typography } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import IconButton from "@mui/material/IconButton";
 import { useState } from "react";
 import links from "./headerLinks";
-import HeaderLinks from "./HeaderLinks/HeaderLinks";
 import MobileMenu from "./MobileMenu/MobileMenu";
+import DesktopMenu from "./DesktopMenu/DesktopMenu";
 
 import styles from "./Header.module.scss";
+import PathsEnum from "../../enums/PathsEnum";
 
 const Header = () => {
     const [isOpen, setOpen] = useState(false);
@@ -25,16 +27,14 @@ const Header = () => {
         <header className={styles["header-container"]}>
             <div className={styles.header}>
                 <Typography className="bold" variant="h1">
-                    Recipes
+                    <Link to={PathsEnum.Home}>Recipes</Link>
                 </Typography>
-                <div className={styles["desktop-menu"]}>
-                    <HeaderLinks links={links} />
-                </div>
+                <DesktopMenu links={links} />
                 <IconButton onClick={onMenuBtn} className={styles["menu-button"]} size="large" color="inherit">
                     <MenuIcon fontSize="large" />
                 </IconButton>
             </div>
-            <MobileMenu isOpen={isOpen} links={links} onMenuBtn={onMenuBtn} />
+            <MobileMenu setOpen={setOpen} isOpen={isOpen} links={links} onMenuBtn={onMenuBtn} />
         </header>
     );
 };

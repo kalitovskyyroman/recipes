@@ -14,7 +14,15 @@
         padding-bottom: 10px;
     }
 
+    a:hover {
+        color: $rc-orange;
+    }
+
     .menu-button {
+        &:hover {
+            color: $rc-orange;
+        }
+
         @include breakpoints($desktop) {
             display: none;
         }
@@ -29,14 +37,6 @@
 
         :global(.MuiTypography-root) {
             text-transform: capitalize;
-        }
-
-        .desktop-menu {
-            display: none;
-
-            @include breakpoints($desktop) {
-                display: block;
-            }
         }
     }
 }

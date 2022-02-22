@@ -6,12 +6,12 @@ import style from "./App.module.scss";
 
 const App = () => (
     <>
-        <Header />
-        <div className={style.app}>
-            <HashRouter>
+        <HashRouter>
+            <Header />
+            <div className={style.app}>
                 <AllRoutes />
-            </HashRouter>
-        </div>
+            </div>
+        </HashRouter>
         <Footer />
     </>
 );
