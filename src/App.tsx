@@ -8,7 +8,7 @@ const App = () => (
     <>
         <Header />
         <div className={style.app}>
-            <HashRouter basename="https://kalitovskyyroman.github.io/recipes/">
+            <HashRouter>
                 <AllRoutes />
             </HashRouter>
         </div>
