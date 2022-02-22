@@ -7,7 +7,7 @@ import theme from "./theme";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
-    <HashRouter basename="https://kalitovskyyroman.github.io/recipes">
+    <HashRouter basename="https://kalitovskyyroman.github.io/recipes/">
         <ThemeProvider theme={theme}>
             <App />
         </ThemeProvider>
