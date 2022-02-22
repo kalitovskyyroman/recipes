@@ -5,6 +5,8 @@
         "indentation": 4,
         "scss/at-import-partial-extension": "always",
         "scss/at-import-partial-extension-whitelist": ["scss", "module.scss", "css"],
-        "no-descending-specificity": null
+        "no-descending-specificity": null,
+        "selector-pseudo-class-no-unknown": [true, { "ignorePseudoClasses": ["global"] }],
+        "selector-class-pattern": null
     }
 }

@@ -29,8 +29,11 @@
             }
         }
     ],
+    "globals": {
+        "JSX": "readonly"
+    },
     "rules": {
-        "react/jsx-filename-extension": ["error", { "extensions": [".tsx", ".ts"] }],
+        "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
         "react/function-component-definition": [
             "error",
             {
