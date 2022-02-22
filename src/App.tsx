@@ -1,4 +1,4 @@
-import { HashRouter } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import AllRoutes from "./Routing/AllRoutes";
@@ -8,9 +8,9 @@ const App = () => (
     <>
         <Header />
         <div className={style.app}>
-            <HashRouter>
+            <BrowserRouter>
                 <AllRoutes />
-            </HashRouter>
+            </BrowserRouter>
         </div>
         <Footer />
     </>
