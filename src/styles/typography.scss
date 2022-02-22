@@ -1,0 +1,31 @@
+[class^="MuiTypography-"] {
+    &.bold {
+        font-weight: 700;
+    }
+
+    &.italic {
+        font-style: italic;
+    }
+}
+
+.MuiTypography-root {
+    &.MuiTypography-h1 {
+        font-size: 34px;
+    }
+
+    &.MuiTypography-h2 {
+        font-size: 28px;
+    }
+
+    &.MuiTypography-h3 {
+        font-size: 24px;
+    }
+
+    &.MuiTypography-h4 {
+        font-size: 20px;
+    }
+
+    &.MuiTypography-body1 {
+        font-size: 17px;
+    }
+}

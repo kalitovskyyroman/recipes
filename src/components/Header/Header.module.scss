@@ -1,0 +1,42 @@
+@import "src/styles/mixins/breakpoints.module.scss";
+@import "src/styles/consts/sizes.module.scss";
+@import "src/styles/colors.scss";
+
+.header-container {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: $rc-black;
+    color: $rc-gray-blue;
+
+    @include breakpoints($desktop) {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .menu-button {
+        @include breakpoints($desktop) {
+            display: none;
+        }
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: $desktop-page-padding;
+        padding-right: $desktop-page-padding;
+
+        :global(.MuiTypography-root) {
+            text-transform: capitalize;
+        }
+
+        .desktop-menu {
+            display: none;
+
+            @include breakpoints($desktop) {
+                display: block;
+            }
+        }
+    }
+}

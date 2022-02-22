@@ -1,12 +1,7 @@
 @import "src/styles/mixins/breakpoints.module.scss";
+@import "src/styles/colors.scss";
 
 .app {
-    padding-top: 48px;
-
-    @include breakpoints(tablet) {
-        padding-top: 0;
-    }
-
     .content {
         height: 100%;
     }

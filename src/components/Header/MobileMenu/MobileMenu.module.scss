@@ -1,0 +1,54 @@
+@import "src/styles/mixins/breakpoints.module.scss";
+@import "src/styles/consts/sizes.module.scss";
+@import "src/styles/colors.scss";
+
+.mobile-menu {
+    transition: opacity 0.5s ease;
+    opacity: 0;
+    height: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+    @include breakpoints($desktop) {
+        display: none;
+    }
+
+    * {
+        display: none;
+    }
+}
+
+.mobile-menu.open {
+    position: absolute;
+    top: 0;
+    opacity: 1;
+    color: $rc-black;
+    overflow: hidden;
+    backdrop-filter: blur(8px);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-left: $desktop-page-padding;
+    padding-right: $desktop-page-padding;
+
+    .menu-button {
+        align-self: flex-end;
+        color: $rc-gray-blue;
+    }
+
+    .links {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        :global(.MuiTypography-root) {
+            text-transform: uppercase;
+        }
+    }
+
+    * {
+        display: block;
+    }
+}
