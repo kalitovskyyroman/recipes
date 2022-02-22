@@ -1,5 +1,7 @@
 enum PathsEnum {
-    Register = "register",
+    Home = "/",
+    Login = "/login",
+    Register = "/register",
 }
 
 export default PathsEnum;

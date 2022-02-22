@@ -1,0 +1,9 @@
+@import "src/styles/mixins/breakpoints.module.scss";
+
+.desktop-menu {
+    display: none;
+
+    @include breakpoints($desktop) {
+        display: block;
+    }
+}
