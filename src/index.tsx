@@ -1,5 +1,4 @@
 import ReactDOM from "react-dom";
-import { HashRouter } from "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
 import "./styles/reset.scss";
 import App from "./App";
@@ -7,11 +6,9 @@ import theme from "./theme";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
-    <HashRouter basename="https://kalitovskyyroman.github.io/recipes/">
-        <ThemeProvider theme={theme}>
-            <App />
-        </ThemeProvider>
-    </HashRouter>,
+    <ThemeProvider theme={theme}>
+        <App />
+    </ThemeProvider>,
     document.getElementById("root")
 );
 

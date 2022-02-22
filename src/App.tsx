@@ -1,3 +1,4 @@
+import { HashRouter } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import AllRoutes from "./Routing/AllRoutes";
@@ -7,7 +8,9 @@ const App = () => (
     <>
         <Header />
         <div className={style.app}>
-            <AllRoutes />
+            <HashRouter basename="https://kalitovskyyroman.github.io/recipes/">
+                <AllRoutes />
+            </HashRouter>
         </div>
         <Footer />
     </>
