@@ -1,0 +1,37 @@
+@import "src/styles/colors.module.scss";
+
+.container {
+    max-width: 450px;
+    padding: 50px;
+
+    .avatar {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+
+        :global(.MuiAvatar-root) {
+            background-color: $rc-black;
+        }
+    }
+
+    .title {
+        margin-bottom: 10px;
+    }
+
+    .login-btn {
+        margin-top: 15px;
+    }
+
+    .register-text {
+        margin-top: 10px;
+
+        a {
+            color: $rc-orange;
+
+            &:hover {
+                font-weight: 700;
+                text-decoration: underline;
+            }
+        }
+    }
+}

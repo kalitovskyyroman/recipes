@@ -1,0 +1,16 @@
+@import "src/styles/consts/sizes.module.scss";
+@import "src/styles/mixins/breakpoints.module.scss";
+
+.login-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    > div:first-child {
+        margin-top: -$mobile-header-height;
+
+        @include breakpoints($desktop) {
+            margin-top: -$desktop-header-height;
+        }
+    }
+}
