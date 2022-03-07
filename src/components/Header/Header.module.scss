@@ -1,6 +1,6 @@
 @import "src/styles/mixins/breakpoints.module.scss";
 @import "src/styles/consts/sizes.module.scss";
-@import "src/styles/colors.scss";
+@import "src/styles/colors.module.scss";
 
 .header-container {
     position: sticky;
@@ -32,8 +32,17 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding-left: $desktop-page-padding;
-        padding-right: $desktop-page-padding;
+        padding-left: $general-padding;
+        padding-right: $general-padding - 12px;
+
+        @include breakpoints($tablet) {
+            padding-left: $desktop-page-padding;
+            padding-right: $desktop-page-padding - 12px;
+        }
+
+        @include breakpoints($desktop) {
+            padding-right: $desktop-page-padding;
+        }
 
         :global(.MuiTypography-root) {
             text-transform: capitalize;
