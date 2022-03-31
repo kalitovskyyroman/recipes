@@ -15,12 +15,12 @@
     }
 
     a:hover {
-        color: $rc-orange;
+        color: $rc-third;
     }
 
     .menu-button {
         &:hover {
-            color: $rc-orange;
+            color: $rc-third;
         }
 
         @include breakpoints($desktop) {

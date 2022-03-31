@@ -4,16 +4,6 @@
     max-width: 450px;
     padding: 50px;
 
-    .avatar {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 10px;
-
-        :global(.MuiAvatar-root) {
-            background-color: $rc-black;
-        }
-    }
-
     .title {
         margin-bottom: 10px;
     }
@@ -26,7 +16,7 @@
         margin-top: 10px;
 
         a {
-            color: $rc-orange;
+            color: $rc-third;
 
             &:hover {
                 font-weight: 700;

@@ -1,0 +1,11 @@
+@import "src/styles/colors.module.scss";
+
+.avatar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+
+    :global(.MuiAvatar-root) {
+        background-color: $rc-black;
+    }
+}

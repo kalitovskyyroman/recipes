@@ -1,13 +1,10 @@
-import Paper from "@mui/material/Paper";
-
-import styles from "./Register.module.scss";
 import RegisterForm from "./RegisterForm/RegisterForm";
 
+import styles from "./Register.module.scss";
+
 const Register = () => (
-    <div className={styles.register}>
-        <Paper className={styles["form-container"]} elevation={3}>
-            <RegisterForm />
-        </Paper>
+    <div className={styles["register-page"]}>
+        <RegisterForm />
     </div>
 );
 

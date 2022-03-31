@@ -10,7 +10,7 @@ interface IHeaderLinks {
 const HeaderLinks = ({ links, onClickLink }: IHeaderLinks) => (
     <>
         {links.map(link => (
-            <Typography onClick={onClickLink} className="bold" variant="h3" key={link.link}>
+            <Typography className="bold" key={link.link} onClick={onClickLink} variant="h3">
                 <Link to={link.link}>{link.title}</Link>
             </Typography>
         ))}

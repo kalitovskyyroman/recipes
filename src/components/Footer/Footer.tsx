@@ -11,7 +11,7 @@ const Footer = () => (
             </Typography>
             <div className={styles.socials}>
                 {socials.map(social => (
-                    <a key={social.url} href={social.url} rel="noreferrer" target="_blank">
+                    <a href={social.url} key={social.url} rel="noreferrer" target="_blank">
                         {social.logo}
                     </a>
                 ))}
@@ -19,7 +19,7 @@ const Footer = () => (
         </div>
         <div className={styles.pages}>
             {basicLinks.map(page => (
-                <a key={page.title} href="_#">
+                <a href="_#" key={page.title}>
                     <Typography className={styles["page-link-title"]} variant="body1">
                         {page.title}
                     </Typography>

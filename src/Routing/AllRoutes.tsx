@@ -4,7 +4,7 @@ import publicRoutes from "./publicRoutes";
 const AllRoutes = () => (
     <Routes>
         {publicRoutes.map(route => (
-            <Route key={route.path} path={route.path} element={route.element} />
+            <Route element={route.element} key={route.path} path={route.path} />
         ))}
     </Routes>
 );

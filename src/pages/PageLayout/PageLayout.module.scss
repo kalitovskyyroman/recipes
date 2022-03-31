@@ -5,16 +5,8 @@
     padding-left: $general-padding;
     padding-right: $general-padding;
 
-    > div:first-child {
-        min-height: calc(100vh - $mobile-header-height);
-    }
-
     @include breakpoints($tablet) {
         padding-left: $desktop-page-padding;
         padding-right: $desktop-page-padding;
-
-        > div:first-child {
-            min-height: calc(100vh - $desktop-header-height);
-        }
     }
 }
