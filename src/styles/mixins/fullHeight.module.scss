@@ -1,0 +1,11 @@
+/* stylelint-disable property-no-unknown */
+@import "src/styles/mixins/breakpoints.module.scss";
+@import "src/styles/consts/sizes.module.scss";
+
+@mixin full-height() {
+    min-height: calc(100vh - $mobile-header-height);
+
+    @include breakpoints($tablet) {
+        min-height: calc(100vh - $desktop-header-height);
+    }
+}

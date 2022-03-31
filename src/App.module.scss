@@ -1,8 +1,5 @@
-@import "src/styles/mixins/breakpoints.module.scss";
-@import "src/styles/colors.module.scss";
+@import "src/styles/mixins/fullHeight.module.scss";
 
-.app {
-    .content {
-        height: 100%;
-    }
+.content {
+    @include full-height;
 }

@@ -15,11 +15,11 @@ interface IMobileMenu {
 
 const MobileMenu = ({ setOpen, onMenuBtn, isOpen, links }: IMobileMenu) => (
     <div className={classNames(styles["mobile-menu"], { [styles.open]: isOpen })}>
-        <IconButton onClick={onMenuBtn} className={styles["menu-button"]} size="large" color="inherit">
+        <IconButton className={styles["menu-button"]} color="inherit" onClick={onMenuBtn} size="large">
             <CloseIcon fontSize="large" />
         </IconButton>
         <div className={styles.links}>
-            <HeaderLinks onClickLink={() => setOpen(false)} links={links} />
+            <HeaderLinks links={links} onClickLink={() => setOpen(false)} />
         </div>
     </div>
 );

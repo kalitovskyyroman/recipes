@@ -30,11 +30,11 @@ const Header = () => {
                     <Link to={PathsEnum.Home}>Recipes</Link>
                 </Typography>
                 <DesktopMenu links={links} />
-                <IconButton onClick={onMenuBtn} className={styles["menu-button"]} size="large" color="inherit">
+                <IconButton className={styles["menu-button"]} color="inherit" onClick={onMenuBtn} size="large">
                     <MenuIcon fontSize="large" />
                 </IconButton>
             </div>
-            <MobileMenu setOpen={setOpen} isOpen={isOpen} links={links} onMenuBtn={onMenuBtn} />
+            <MobileMenu isOpen={isOpen} links={links} onMenuBtn={onMenuBtn} setOpen={setOpen} />
         </header>
     );
 };

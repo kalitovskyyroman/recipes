@@ -1,15 +1,9 @@
-.register {
-    display: flex;
-    justify-content: center;
-    height: calc(100vh - 65px);
+@import "src/styles/mixins/fullHeight.module.scss";
 
-    .form-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 150px;
-        padding: 40px;
-        max-width: 500px;
-        max-height: 500px;
-    }
+.register-page {
+    @include full-height;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
