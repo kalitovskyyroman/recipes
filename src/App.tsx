@@ -1,7 +1,7 @@
 import { HashRouter } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import AllRoutes from "./routing/AllRoutes";
+import AllRoutes from "./routes/AllRoutes";
 
 import styles from "./App.module.scss";
 
