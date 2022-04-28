@@ -1,4 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import TextField from "@mui/material/TextField";
+import { useNavigate } from "react-router-dom";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import { Button, Typography } from "@mui/material";
@@ -7,9 +9,12 @@ import { useFormik } from "formik";
 import FieldEnum from "../../../enums/FieldEnum";
 import CustomAvatar from "../../../components/CustomAvatar/CustomAvatar";
 import validationSchema from "../../../components/Forms/Validations/registerForm.validateSchema";
-import { registerUser } from "../../../services/register.service";
+import { registerUser } from "../../../services/auth.service";
+import { useUser } from "../../../hooks/useUser";
+import ResponseStatusesEnum from "../../../enums/ResponseStatusesEnum";
 
 import styles from "./RegisterForm.module.scss";
+import PathsEnum from "../../../enums/PathsEnum";
 
 const initialValues = {
     [FieldEnum.Name]: "",
@@ -18,11 +23,21 @@ const initialValues = {
 };
 
 const RegisterForm = () => {
+    const { setUser } = useUser();
+    const navigate = useNavigate();
+
     const formik = useFormik({
         initialValues,
         validationSchema,
-        onSubmit: () => {
-            registerUser(formik.values);
+        onSubmit: async () => {
+            const res = await registerUser(formik.values);
+
+            console.log(res);
+
+            // if (res.status === ResponseStatusesEnum.SUCCESS) {
+            //     setUser({ isAuthenticated: true, data: res.data });
+            //     navigate(PathsEnum.Home);
+            // }
         },
     });
 

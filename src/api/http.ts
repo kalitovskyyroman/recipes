@@ -1,10 +1,11 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable import/prefer-default-export */
 import axios from "axios";
-import config from "../config.json";
+import ApiConfig from "../config.json";
 
-const serverUrl = config.SERVER_URL;
-
-export default axios.create({
+const http = axios.create({
     withCredentials: true,
-    baseURL: serverUrl,
+    baseURL: ApiConfig.SERVER_URL,
 });
+
+export default http;

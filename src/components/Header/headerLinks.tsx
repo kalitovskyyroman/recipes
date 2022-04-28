@@ -1,10 +1,10 @@
 import IHeaderLink from "../../interfaces/IHeaderLink";
 
 const links: IHeaderLink[] = [
-    {
-        title: "login",
-        link: "/login",
-    },
+    // {
+    //     title: "login",
+    //     link: "/login",
+    // },
 ];
 
 export default links;

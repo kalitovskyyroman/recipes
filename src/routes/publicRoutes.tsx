@@ -12,10 +12,12 @@ const publicRoutes: IRoute[] = [
     {
         path: PathsEnum.Login,
         element: <Login />,
+        isPublicOnly: true,
     },
     {
         path: PathsEnum.Register,
         element: <Register />,
+        isPublicOnly: true,
     },
 ];
 

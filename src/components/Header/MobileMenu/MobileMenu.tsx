@@ -3,6 +3,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import classNames from "classnames";
 import HeaderLinks from "../HeaderLinks/HeaderLinks";
 import IHeaderLink from "../../../interfaces/IHeaderLink";
+import Buttons from "../Buttons/Buttons";
 
 import styles from "./MobileMenu.module.scss";
 
@@ -20,6 +21,7 @@ const MobileMenu = ({ setOpen, onMenuBtn, isOpen, links }: IMobileMenu) => (
         </IconButton>
         <div className={styles.links}>
             <HeaderLinks links={links} onClickLink={() => setOpen(false)} />
+            <Buttons />
         </div>
     </div>
 );
