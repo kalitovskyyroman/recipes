@@ -1,10 +1,8 @@
-import IRole from "./IRole";
-
 interface IRoute {
-    path: string;
+    path?: string;
     element: JSX.Element;
     isPublicOnly?: boolean;
-    roles?: IRole[];
+    roles?: string[];
 }
 
 export default IRoute;

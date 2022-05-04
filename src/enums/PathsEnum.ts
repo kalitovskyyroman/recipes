@@ -2,7 +2,8 @@ enum PathsEnum {
     Home = "/",
     Login = "/login",
     Register = "/register",
-    Secret = "/secret",
+    Admin = "/admin",
+    NotFound = "*",
 }
 
 export default PathsEnum;

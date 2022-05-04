@@ -1,5 +1,6 @@
 import PathsEnum from "../enums/PathsEnum";
 import IRoute from "../interfaces/IRoute";
+import NotFound from "../pages/404/404.page";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
@@ -18,6 +19,10 @@ const publicRoutes: IRoute[] = [
         path: PathsEnum.Register,
         element: <Register />,
         isPublicOnly: true,
+    },
+    {
+        path: PathsEnum.NotFound,
+        element: <NotFound />,
     },
 ];
 
