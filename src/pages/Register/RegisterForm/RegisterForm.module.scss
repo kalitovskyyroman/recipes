@@ -1,12 +1,13 @@
 @import "src/styles/colors.module.scss";
+@import "src/styles/mixins/breakpoints.module.scss";
 
-.form-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 500px;
-    max-height: 500px;
+.container {
+    max-width: 370px;
     padding: 50px;
+
+    @include breakpoints($tablet) {
+        max-width: 500px;
+    }
 
     .title {
         margin-bottom: 10px;

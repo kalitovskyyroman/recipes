@@ -1,14 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import PathsEnum from "../enums/PathsEnum";
 import ResponseStatusesEnum from "../enums/ResponseStatusesEnum";
-import { login, logout } from "../services/auth.service";
+import { login, logout, register } from "../services/auth.service";
 import { useUser } from "./useUser";
 
 const useAuthentication = () => {
     const { setUser, removeUser } = useUser();
     const navigate = useNavigate();
-
-    console.log("test");
 
     const onLogin = async (email: string, password: string) => {
         const res = await login(email, password);
@@ -19,7 +17,14 @@ const useAuthentication = () => {
         }
     };
 
-    const onRegister = () => {};
+    const onRegister = async (email: string, name: string, password: string) => {
+        const res = await register(email, name, password)
+
+        if (res.status === ResponseStatusesEnum.SUCCESS) {
+            setUser({ isAuthenticated: true, data: res.data.user, tokens: res.data.tokens });
+            navigate(PathsEnum.Home);
+        }
+    };
 
     const onLogout = async () => {
         const result = await logout();

@@ -17,7 +17,7 @@ export interface ILoginValues {
     email: string;
     password: string;
 }
-export interface ILoginForm {
+interface ILoginForm {
     onSubmit: (values: ILoginValues) => void;
 }
 

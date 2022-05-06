@@ -1,8 +1,13 @@
 @import "src/styles/colors.module.scss";
+@import "src/styles/mixins/breakpoints.module.scss";
 
 .container {
-    max-width: 450px;
+    max-width: 370px;
     padding: 50px;
+
+    @include breakpoints($tablet) {
+        max-width: 500px;
+    }
 
     .title {
         text-align: center;

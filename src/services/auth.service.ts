@@ -1,19 +1,17 @@
-/* eslint-disable import/prefer-default-export */
-import { AxiosResponse } from "axios";
-import http from "../api/http";
-import { IUserRequest, IUserResponse } from "../interfaces/IUser";
-import ILoginResponse from "./response/ILoginResponse";
+import { post, get } from "../api/http";
+import ILoginRequest from "./interfaces/requests/ILoginRequest";
+import ILoginResponse from "./interfaces/responses/ILoginResponse";
+import IRegisterResponse from "./interfaces/responses/IRegisterResponse";
+import IRegisterRequest from "./interfaces/requests/IRegisterRequest";
 
-const path = "/registration";
+const login = async (email: string, password: string) =>
+    post<ILoginRequest, ILoginResponse>("/login", { email, password });
 
-const login = async (email: string, password: string): Promise<AxiosResponse<ILoginResponse>> =>
-    http.post<ILoginResponse>("/login", { email, password });
+const register = async (name: string, email: string, password: string) =>
+    post<IRegisterRequest, IRegisterResponse>("/registration", { name, email, password });
 
-const registerUser = async (user: IUserRequest) => {
-    const response = await http.post<IUserResponse>(path, user);
-    return response;
-};
+const refresh = async () => get<ILoginResponse>("/refresh");
 
-const logout = async () => http.get("/logout");
+const logout = async () => get<any>("/logout");
 
-export { login, registerUser, logout };
+export { login, register, logout, refresh };
