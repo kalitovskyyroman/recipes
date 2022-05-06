@@ -2,6 +2,7 @@
 /* eslint-disable react/require-default-props */
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { IUser } from "../interfaces/IUser";
+import ITokens from "../services/response/ITokens";
 
 const defaultUser: IUser = {
     isAuthenticated: false,
@@ -24,8 +25,10 @@ const defaultUser: IUser = {
 interface IUserContext {
     user: IUser;
     isAuthenticated: boolean;
-    setUser: React.Dispatch<React.SetStateAction<IUser>>;
+    setUser: (userData: Partial<IUser>) => void;
     removeUser: () => void;
+    getTokens: () => ITokens;
+    setTokens: (tokens: ITokens) => void;
 }
 
 const UserContext = createContext({} as IUserContext);
@@ -39,14 +42,36 @@ const UserProvider = ({ children }: IUserProvider) => {
         localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")!) : defaultUser
     );
 
+    const setUserData = (userData: Partial<IUser>) => setUser((prev: IUser) => ({ ...prev, ...userData }));
+
     const removeUser = () => setUser(defaultUser);
 
+    const getTokens = (): ITokens => ({
+        ...(JSON.parse(localStorage.getItem("user")!) as IUser).tokens,
+    });
+
+    const setTokens = (tokens: ITokens) => {
+        setUserData({ tokens });
+        localStorage.setItem("user", JSON.stringify({ ...user, tokens }));
+    };
+
     useEffect(() => {
-        localStorage.setItem("user", JSON.stringify(user));
+        if (JSON.stringify(user) !== localStorage.getItem("user")) {
+            localStorage.setItem("user", JSON.stringify(user));
+        }
     }, [user]);
 
     return (
-        <UserContext.Provider value={{ user, removeUser, setUser, isAuthenticated: user.isAuthenticated }}>
+        <UserContext.Provider
+            value={{
+                user,
+                removeUser,
+                setUser: setUserData,
+                isAuthenticated: user.isAuthenticated,
+                getTokens,
+                setTokens,
+            }}
+        >
             {children}
         </UserContext.Provider>
     );

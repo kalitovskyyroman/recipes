@@ -1,37 +1,29 @@
-import { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
+/* eslint-disable prefer-promise-reject-errors */
+/* eslint-disable no-debugger */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable consistent-return */
+import { AxiosRequestConfig } from "axios";
 import { useEffect } from "react";
 import http from "../api/http";
 import { useUser } from "../hooks/useUser";
 
 const Interceptors = ({ children }: { children: JSX.Element }) => {
-    const { user } = useUser();
+    const { user, isAuthenticated, getTokens, setUser, removeUser, setTokens } = useUser();
 
     useEffect(() => {
         const onRequestInterceptor = (request: AxiosRequestConfig) => {
-            console.info("request: ", request);
-            console.info("headr: ", user.tokens.accessToken);
-
+            
+            if (isAuthenticated) {
+                request.headers!.Authorization! = `Bearer ${getTokens().accessToken}`;
+            }   
+            
             return request;
         };
 
-        const onResponseInterceptor = (response: AxiosResponse) => {
-            console.info("response: ", response);
-
-            return response;
-        };
-
-        const onErrorInterceptor = (error: AxiosError) => {
-            console.error("error: ", error);
-
-            return error;
-        };
-
-        const requestInterceptor = http.interceptors.request.use(onRequestInterceptor, onErrorInterceptor);
-        const responseInterceptor = http.interceptors.response.use(onResponseInterceptor, onErrorInterceptor);
+        const requestInterceptor = http.interceptors.request.use(onRequestInterceptor);
 
         return () => {
             http.interceptors.request.eject(requestInterceptor);
-            http.interceptors.response.eject(responseInterceptor);
         };
     }, []);
 

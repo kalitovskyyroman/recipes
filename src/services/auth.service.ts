@@ -14,6 +14,8 @@ const registerUser = async (user: IUserRequest) => {
     return response;
 };
 
+const refresh = async (): Promise<AxiosResponse<ILoginResponse>> => http.get<ILoginResponse>("/refresh")
+
 const logout = async () => http.get("/logout");
 
-export { login, registerUser, logout };
+export { login, registerUser, logout, refresh };

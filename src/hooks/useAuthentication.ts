@@ -8,8 +8,6 @@ const useAuthentication = () => {
     const { setUser, removeUser } = useUser();
     const navigate = useNavigate();
 
-    console.log("test");
-
     const onLogin = async (email: string, password: string) => {
         const res = await login(email, password);
 
