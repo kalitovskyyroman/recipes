@@ -1,22 +1,5 @@
-import ITokens from "../services/response/ITokens";
-import IUserDto from "../services/response/IUserDto";
-
-export interface IUserRequest {
-    name: string;
-    email: string;
-    password: string;
-}
-
-export interface IUserResponse {
-    id: string;
-    name: string;
-    email: string;
-    role: {
-        name: string;
-    };
-    createdAt: string;
-    updatedAt: string;
-}
+import ITokens from "./ITokens";
+import IUserDto from "./IUserDto";
 
 export interface IUser {
     isAuthenticated: boolean;

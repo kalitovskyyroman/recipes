@@ -16,7 +16,7 @@ const Home = () => {
             {isAuthenticated && <button onClick={onGetUsers}>get users</button>}
             Users:
             {users.map(user => (
-                <div>{JSON.stringify(user)}</div>
+                <div>{JSON.stringify((user as { name: string }).name)}</div>
             ))}
         </div>
     );

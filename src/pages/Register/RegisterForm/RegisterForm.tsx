@@ -1,6 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import TextField from "@mui/material/TextField";
-import { useNavigate } from "react-router-dom";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import { Button, Typography } from "@mui/material";
@@ -9,12 +7,14 @@ import { useFormik } from "formik";
 import FieldEnum from "../../../enums/FieldEnum";
 import CustomAvatar from "../../../components/CustomAvatar/CustomAvatar";
 import validationSchema from "../../../components/Forms/Validations/registerForm.validateSchema";
-import { registerUser } from "../../../services/auth.service";
-import { useUser } from "../../../hooks/useUser";
-import ResponseStatusesEnum from "../../../enums/ResponseStatusesEnum";
 
 import styles from "./RegisterForm.module.scss";
-import PathsEnum from "../../../enums/PathsEnum";
+
+export interface IRegisterValues {
+    name: string;
+    email: string;
+    password: string;
+}
 
 const initialValues = {
     [FieldEnum.Name]: "",
@@ -22,27 +22,19 @@ const initialValues = {
     [FieldEnum.Password]: "",
 };
 
-const RegisterForm = () => {
-    const { setUser } = useUser();
-    const navigate = useNavigate();
+interface IRegisterForm {
+    onSubmit: (values: IRegisterValues) => void;
+}
 
+const RegisterForm = ({ onSubmit }: IRegisterForm) => {
     const formik = useFormik({
         initialValues,
         validationSchema,
-        onSubmit: async () => {
-            const res = await registerUser(formik.values);
-
-            console.log(res);
-
-            // if (res.status === ResponseStatusesEnum.SUCCESS) {
-            //     setUser({ isAuthenticated: true, data: res.data });
-            //     navigate(PathsEnum.Home);
-            // }
-        },
+        onSubmit,
     });
 
     return (
-        <Paper className={styles["form-container"]} elevation={3}>
+        <Paper className={styles.container} elevation={3}>
             <form className={styles.container} onSubmit={formik.handleSubmit}>
                 <CustomAvatar icon={<ExitToAppIcon />} />
                 <Typography className={styles.title} variant="h2">

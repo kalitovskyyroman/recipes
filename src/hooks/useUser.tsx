@@ -2,7 +2,7 @@
 /* eslint-disable react/require-default-props */
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { IUser } from "../interfaces/IUser";
-import ITokens from "../services/response/ITokens";
+import ITokens from "../interfaces/ITokens";
 
 const defaultUser: IUser = {
     isAuthenticated: false,
