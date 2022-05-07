@@ -7,6 +7,7 @@ import PathsEnum from "../enums/PathsEnum";
 import ResponseStatusesEnum from "../enums/ResponseStatusesEnum";
 import { useUser } from "../hooks/useUser";
 import { refresh } from "../services/auth.service";
+import IErrorResponse from "../services/interfaces/responses/IErrorResponse";
 
 const ErrorHandler = ({ children }: { children: JSX.Element }) => {
     const { removeUser, setTokens } = useUser();
@@ -15,7 +16,7 @@ const ErrorHandler = ({ children }: { children: JSX.Element }) => {
     useEffect(() => {
         const onResponseInterceptor = (response: AxiosResponse) => response;
 
-        const onErrorInterceptor = async (error: AxiosError) => {
+        const onErrorInterceptor = async (error: AxiosError<IErrorResponse>) => {
             const originalRequest = error.config;
 
             switch (error.response?.status) {
@@ -29,6 +30,11 @@ const ErrorHandler = ({ children }: { children: JSX.Element }) => {
                     const response = await refresh();
                     setTokens(response.data.tokens);
                     return http.request(originalRequest);
+                }
+                case ResponseStatusesEnum.BadRequest: {
+                    console.log(error.response);
+                    break;
+                    // throw error
                 }
                 default:
                     navigator(PathsEnum.NotFound);
