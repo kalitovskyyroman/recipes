@@ -1,10 +1,8 @@
-/* eslint-disable arrow-body-style */
 /* eslint-disable react/jsx-no-constructed-context-values */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { createContext, useContext, useState } from "react";
 import IChildren from "../interfaces/IChildren";
 
-type snackbarType = "success" | "error" | "warning" | "info"
+type snackbarType = "success" | "error" | "warning" | "info";
 
 interface ISnackBarData {
     isOpen: boolean;
@@ -29,14 +27,17 @@ const SnackbarContext = createContext({} as ISnackbarContext);
 const SnackbarProvider = ({ children }: IChildren) => {
     const [snackbarData, setSnackbarData] = useState<ISnackBarData>(defaultSnackbarData);
 
-    const showMessage = (message: string, type: snackbarType = "info") => setSnackbarData(prev => ({ ...prev, isOpen: true, message, type}));
+    const showMessage = (message: string, type: snackbarType = "info") =>
+        setSnackbarData(prev => ({ ...prev, isOpen: true, message, type }));
 
     const handleClose = () => {
-        setSnackbarData(prev => ({ ...defaultSnackbarData, type: prev.type, message: prev.message }))
+        setSnackbarData(prev => ({ ...defaultSnackbarData, type: prev.type, message: prev.message }));
     };
 
     return (
-        <SnackbarContext.Provider value={{ snackbarData, showMessage, handleClose }}>{children}</SnackbarContext.Provider>
+        <SnackbarContext.Provider value={{ snackbarData, showMessage, handleClose }}>
+            {children}
+        </SnackbarContext.Provider>
     );
 };
 
