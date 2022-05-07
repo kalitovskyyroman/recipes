@@ -19,12 +19,11 @@ const CustomSnackbar = () => {
                 horizontal: "center",
             }}
             autoHideDuration={3000}
-            message={snackbarData.message}
             onClose={handleClose}
             open={snackbarData.isOpen}
         >
             <Alert severity={snackbarData.type} sx={{ width: "100%" }}>
-                text
+                {snackbarData.message}
             </Alert>
         </Snackbar>
     );

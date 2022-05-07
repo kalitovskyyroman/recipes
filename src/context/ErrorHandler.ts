@@ -32,9 +32,7 @@ const ErrorHandler = ({ children }: { children: JSX.Element }) => {
                     return http.request(originalRequest);
                 }
                 case ResponseStatusesEnum.BadRequest: {
-                    console.log(error.response);
-                    break;
-                    // throw error
+                    throw error.response.data
                 }
                 default:
                     navigator(PathsEnum.NotFound);

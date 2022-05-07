@@ -31,7 +31,9 @@ const SnackbarProvider = ({ children }: IChildren) => {
 
     const showMessage = (message: string, type: snackbarType = "info") => setSnackbarData(prev => ({ ...prev, isOpen: true, message, type}));
 
-    const handleClose = () => setSnackbarData(prev => ({ ...defaultSnackbarData, type: prev.type }));
+    const handleClose = () => {
+        setSnackbarData(prev => ({ ...defaultSnackbarData, type: prev.type, message: prev.message }))
+    };
 
     return (
         <SnackbarContext.Provider value={{ snackbarData, showMessage, handleClose }}>{children}</SnackbarContext.Provider>
