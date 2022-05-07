@@ -4,6 +4,7 @@ import { createContext } from "react";
 import { UserProvider } from "../hooks/useUser";
 import Interceptors from "../context/Interceptors";
 import ErrorHandler from "../context/ErrorHandler";
+import { SnackbarProvider } from "../context/useSnackbar";
 
 interface IGlobalProvider {
     children: JSX.Element;
@@ -13,11 +14,13 @@ const GlobalContext = createContext({});
 
 const GlobalProvider = ({ children }: IGlobalProvider) => (
     <GlobalContext.Provider value={{}}>
-        <UserProvider>
-            <ErrorHandler>
-                <Interceptors>{children}</Interceptors>
-            </ErrorHandler>
-        </UserProvider>
+        <SnackbarProvider>
+            <UserProvider>
+                <ErrorHandler>
+                    <Interceptors>{children}</Interceptors>
+                </ErrorHandler>
+            </UserProvider>
+        </SnackbarProvider>
     </GlobalContext.Provider>
 );
 
