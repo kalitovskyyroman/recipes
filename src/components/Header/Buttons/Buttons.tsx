@@ -7,22 +7,33 @@ import { useUser } from "../../../hooks/useUser";
 
 import styles from "./Buttons.module.scss";
 
-const Buttons = () => {
+interface IButtons {
+    onClick?: () => void;
+}
+
+const Buttons = ({ onClick }: IButtons) => {
     const { isAuthenticated } = useUser();
     const { pathname } = useLocation();
     const { onLogout } = useAuthentication();
 
     const isVisibleLogin = !isAuthenticated && pathname !== PathsEnum.Login;
 
+    const handleLogout = () => {
+        if (onClick) {
+            onClick();
+        }
+        onLogout();
+    };
+
     return (
         <div className={styles["header-buttons"]}>
             {isVisibleLogin && (
-                <Link to={PathsEnum.Login}>
+                <Link onClick={onClick} to={PathsEnum.Login}>
                     <LoginIcon fontSize="large" />
                 </Link>
             )}
             {isAuthenticated && (
-                <Link onClick={onLogout} to={PathsEnum.Home}>
+                <Link onClick={handleLogout} to={PathsEnum.Home}>
                     <LogoutIcon fontSize="large" />
                 </Link>
             )}
