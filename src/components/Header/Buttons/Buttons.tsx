@@ -19,11 +19,9 @@ const Buttons = ({ onClick }: IButtons) => {
     const isVisibleLogin = !isAuthenticated && pathname !== PathsEnum.Login;
 
     const handleLogout = () => {
-        if(onClick) {
+        if (onClick) {
             onClick();
         }
-        console.log(1);
-        
         onLogout();
     };
 
