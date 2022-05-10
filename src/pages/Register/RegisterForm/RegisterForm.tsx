@@ -35,7 +35,7 @@ const RegisterForm = ({ onSubmit }: IRegisterForm) => {
 
     return (
         <Paper className={styles.container} elevation={3}>
-            <form className={styles.container} onSubmit={formik.handleSubmit}>
+            <form onSubmit={formik.handleSubmit}>
                 <CustomAvatar icon={<ExitToAppIcon />} />
                 <Typography className={styles.title} variant="h2">
                     Sign Up
