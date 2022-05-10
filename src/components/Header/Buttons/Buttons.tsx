@@ -22,6 +22,8 @@ const Buttons = ({ onClick }: IButtons) => {
         if(onClick) {
             onClick();
         }
+        console.log(1);
+        
         onLogout();
     };
 
