@@ -5,5 +5,9 @@
 
     @include breakpoints($desktop) {
         display: flex;
+        
+        svg {
+            margin-left: 10px;
+        }
     }
 }

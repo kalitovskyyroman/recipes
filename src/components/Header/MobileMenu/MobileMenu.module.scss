@@ -53,6 +53,10 @@
         justify-content: center;
         align-items: center;
 
+        svg {
+            margin-top: 15px;
+        }
+
         :global(.MuiTypography-root) {
             text-transform: uppercase;
         }

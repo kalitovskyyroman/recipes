@@ -1,7 +1,8 @@
 interface IHeaderLink {
-    title: string;
+    title?: string;
     link: string;
-    isPrivate?: boolean;
+    component?: JSX.Element;
+    roles?: string[];
 }
 
 export default IHeaderLink;

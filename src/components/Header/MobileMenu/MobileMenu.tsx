@@ -20,7 +20,7 @@ const MobileMenu = ({ setOpen, onMenuBtn, isOpen, links }: IMobileMenu) => (
             <CloseIcon fontSize="large" />
         </IconButton>
         <div className={styles.links}>
-            <HeaderLinks links={links} onClickLink={() => setOpen(false)} />
+            <HeaderLinks links={links}  onClickLink={() => setOpen(false)} />
             <Buttons onClick={() => setOpen(false)} />
         </div>
     </div>
