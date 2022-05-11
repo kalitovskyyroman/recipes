@@ -1,0 +1,48 @@
+$sidebar-extend-part: 100px;
+
+.sidebar {
+    position: relative;
+    width: 70px;
+
+    .item-container {
+        margin-top: 10px;
+        height: 28px;
+    }
+
+    .sidebar-list {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        z-index: 2;
+        
+        .toggle-button {
+            align-self: center;
+        }
+
+        .icon {
+            text-align: center;
+        }
+    }
+
+    .full-part {
+        padding-top: 40px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: $sidebar-extend-part;
+        transition: right 0.5s;
+        box-shadow: inherit inherit 0;
+
+        &.open {
+            right: -$sidebar-extend-part + 3px;
+        }
+
+        .title {
+            vertical-align: middle;
+            margin-left: 5px;
+        }
+    }
+}
