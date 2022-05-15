@@ -34,7 +34,7 @@ const Header = () => {
                     <MenuIcon fontSize="large" />
                 </IconButton>
             </div>
-            <MobileMenu isOpen={isOpen} links={links} onMenuBtn={onMenuBtn} setOpen={setOpen} />
+            <MobileMenu isOpen={isOpen} links={links} onMenuBtn={onMenuBtn} />
         </header>
     );
 };

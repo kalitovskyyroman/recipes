@@ -2,6 +2,7 @@
 
 .content {
     @include full-height;
-
-    height: 100%;
+    
+    display: flex;
+    min-height: 100%;
 }

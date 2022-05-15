@@ -1,12 +1,12 @@
 import PathsEnum from "../enums/PathsEnum";
 import RoleEnum from "../enums/RoleEnum";
 import IRoute from "../interfaces/IRoute";
-import Admin from "../pages/Admin/Admin.page";
+import UsersList from "../pages/Admin/Users/Users.page";
 
 const privateRoutes: IRoute[] = [
     {
         path: PathsEnum.Admin,
-        element: <Admin />,
+        element: <UsersList />,
         roles: [RoleEnum.Admin, RoleEnum.Moderator],
     },
 ];
