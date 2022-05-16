@@ -6,9 +6,10 @@ import { useState } from "react";
 import links from "./headerLinks";
 import MobileMenu from "./MobileMenu/MobileMenu";
 import DesktopMenu from "./DesktopMenu/DesktopMenu";
+import PathsEnum from "../../enums/PathsEnum";
+import Loader from "../Loader/Loader";
 
 import styles from "./Header.module.scss";
-import PathsEnum from "../../enums/PathsEnum";
 
 const Header = () => {
     const [isOpen, setOpen] = useState(false);
@@ -35,6 +36,7 @@ const Header = () => {
                 </IconButton>
             </div>
             <MobileMenu isOpen={isOpen} links={links} onMenuBtn={onMenuBtn} />
+            <Loader />
         </header>
     );
 };
