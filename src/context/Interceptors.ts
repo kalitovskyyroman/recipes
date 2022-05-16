@@ -1,13 +1,13 @@
 /* eslint-disable consistent-return */
 import { AxiosRequestConfig } from "axios";
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 import http from "../api/http";
 import { useUser } from "../hooks/useUser";
 
 const Interceptors = ({ children }: { children: JSX.Element }) => {
     const { isAuthenticated, getTokens } = useUser();
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         const onRequestInterceptor = (request: AxiosRequestConfig) => {
             if (isAuthenticated) {
                 request.headers!.Authorization! = `Bearer ${getTokens().accessToken}`;

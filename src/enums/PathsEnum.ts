@@ -2,7 +2,7 @@ enum PathsEnum {
     Home = "/",
     Login = "/login",
     Register = "/register",
-    Admin = "/admin",
+    Admin = "/admin/users",
     NotFound = "*",
 }
 

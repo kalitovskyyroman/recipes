@@ -4,6 +4,7 @@
 .page-layout {
     padding-left: $general-padding;
     padding-right: $general-padding;
+    width: 100%;
 
     @include breakpoints($tablet) {
         padding-left: $desktop-page-padding;
