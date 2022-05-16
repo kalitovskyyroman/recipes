@@ -9,11 +9,6 @@
     background-color: $rc-black;
     color: $rc-gray-blue;
 
-    @include breakpoints($desktop) {
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
-
     a:hover {
         color: $rc-third;
     }
@@ -41,6 +36,8 @@
         }
 
         @include breakpoints($desktop) {
+            padding-top: 10px;
+            padding-bottom: 10px;
             padding-right: $desktop-page-padding;
         }
 

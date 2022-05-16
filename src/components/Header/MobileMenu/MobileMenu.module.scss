@@ -23,6 +23,7 @@
     position: absolute;
     top: 0;
     opacity: 1;
+    z-index: 1;
     color: $rc-black;
     overflow: hidden;
     backdrop-filter: blur(8px);
